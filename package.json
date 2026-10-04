@@ -1,0 +1,17 @@
+{
+  "name": "picaxe-08m2-temp-humidity-lcd",
+  "private": true,
+  "type": "module",
+  "description": "PICAXE 08M2 temp/humidity LCD project note — Eleventy + Patina",
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy",
+    "preview": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

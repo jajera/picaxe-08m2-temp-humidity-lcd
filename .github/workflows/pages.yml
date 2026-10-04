@@ -1,0 +1,19 @@
+name: Deploy Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request: {}
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  pages:
+    uses: actionsforge/actions/.github/workflows/eleventy-pages-deploy.yml@main
+    with:
+      node-version: "24"
+      path-prefix: /picaxe-08m2-temp-humidity-lcd/

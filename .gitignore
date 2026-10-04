@@ -1,0 +1,15 @@
+.DS_Store
+*.swp
+.idea/
+.vscode/
+.env
+.env.*
+
+node_modules/
+_site/
+package-lock.json.bak
+
+# Large phone originals (web sizes live in src/images/)
+/IMG_*.jpeg
+/IMG_*.jpg
+/IMG_*.JPG

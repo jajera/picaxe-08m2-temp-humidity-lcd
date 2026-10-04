@@ -1,0 +1,73 @@
+/* Patina tokens (johna.kiwi / guides) — standalone, no Starlight */
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=optional");
+
+:root,
+:root[data-theme="dark"] {
+  --font-body: "Manrope", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  --font-head: "Outfit", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+
+  --accent-low: #0a3a45;
+  --accent: #22d3ee;
+  --accent-high: #67e8f9;
+
+  --ink: #d4e8ee;
+  --muted: #b7cdd4;
+  --line: rgb(34 211 238 / 18%);
+  --bg: #071014;
+  --card: #0b171c;
+  --code-bg: #102630;
+  --invert: #04222a;
+
+  /* Soft page glows (same idea as conduit / seiscomp-containers-lab) */
+  --page-glow-a: rgba(34, 211, 238, 0.08);
+  --page-glow-b: rgba(14, 116, 144, 0.1);
+}
+
+:root[data-theme="light"] {
+  --accent-low: #d4eef4;
+  --accent: #0b6f88;
+  --accent-high: #085568;
+
+  --ink: #1a3844;
+  --muted: #3a5560;
+  --line: #c5d4d8;
+  --bg: #eef4f6;
+  --card: #ffffff;
+  --code-bg: #f7fbfc;
+  --invert: #ffffff;
+
+  --page-glow-a: rgba(11, 111, 136, 0.1);
+  --page-glow-b: rgba(14, 116, 144, 0.08);
+}
+
+html {
+  color-scheme: dark;
+  background:
+    radial-gradient(1200px 500px at 10% -10%, var(--page-glow-a), transparent 55%),
+    radial-gradient(900px 400px at 100% 0%, var(--page-glow-b), transparent 50%),
+    var(--bg);
+  background-attachment: fixed;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]):not([data-theme="light"]) {
+    --accent-low: #d4eef4;
+    --accent: #0b6f88;
+    --accent-high: #085568;
+    --ink: #1a3844;
+    --muted: #3a5560;
+    --line: #c5d4d8;
+    --bg: #eef4f6;
+    --card: #ffffff;
+    --code-bg: #f7fbfc;
+    --invert: #ffffff;
+    --page-glow-a: rgba(11, 111, 136, 0.1);
+    --page-glow-b: rgba(14, 116, 144, 0.08);
+    color-scheme: light;
+  }
+}

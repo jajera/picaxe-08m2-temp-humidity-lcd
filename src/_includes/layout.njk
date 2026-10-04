@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" data-theme-pref="auto">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="{{ title }}" />
+  <meta property="og:description" content="{{ description }}" />
+  <meta property="og:url" content="https://jajera.github.io/picaxe-08m2-temp-humidity-lcd/" />
+  <meta property="og:image" content="https://jajera.github.io/picaxe-08m2-temp-humidity-lcd/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ title }}" />
+  <meta name="twitter:description" content="{{ description }}" />
+  <meta name="twitter:image" content="https://jajera.github.io/picaxe-08m2-temp-humidity-lcd/og-image.png" />
+  <link rel="icon" href="{{ '/favicon.svg' | url }}" type="image/svg+xml" />
+  <link rel="stylesheet" href="{{ '/css/patina.css' | url }}" />
+  <link rel="stylesheet" href="{{ '/css/note.css' | url }}" />
+  <script>
+    (function () {
+      try {
+        var pref = localStorage.getItem("theme") || "auto";
+        document.documentElement.setAttribute("data-theme-pref", pref);
+        if (pref === "light" || pref === "dark") {
+          document.documentElement.setAttribute("data-theme", pref);
+        } else {
+          document.documentElement.removeAttribute("data-theme");
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-mark" href="{{ '/' | url }}">PICAXE temp / humidity</a>
+    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+      <span class="visually-hidden">Theme</span>
+      <svg class="icon theme-icon theme-icon-auto" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+      </svg>
+      <svg class="icon theme-icon theme-icon-light" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+      </svg>
+      <svg class="icon theme-icon theme-icon-dark" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5z"></path>
+      </svg>
+    </button>
+  </header>
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <a href="https://github.com/jajera/picaxe-08m2-temp-humidity-lcd">Source on GitHub</a>
+  </footer>
+
+  <script>
+    (function () {
+      var btn = document.getElementById("theme-toggle");
+      if (!btn) return;
+      var order = ["auto", "light", "dark"];
+      btn.addEventListener("click", function () {
+        var cur = document.documentElement.getAttribute("data-theme-pref") || "auto";
+        var next = order[(order.indexOf(cur) + 1) % order.length];
+        document.documentElement.setAttribute("data-theme-pref", next);
+        try {
+          localStorage.setItem("theme", next);
+        } catch (e) {}
+        if (next === "auto") {
+          document.documentElement.removeAttribute("data-theme");
+        } else {
+          document.documentElement.setAttribute("data-theme", next);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
